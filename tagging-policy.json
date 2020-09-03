@@ -1,7 +1,8 @@
-{
+{   "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "deny-creation-of-untagged-resources",
     "properties": {
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "displayName": "Resource Tagging Policy",
+        "description": "This policy prevents untagged resources from being created.",
         "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
