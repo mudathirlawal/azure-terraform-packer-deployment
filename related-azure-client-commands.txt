@@ -1,0 +1,9 @@
+az policy definition create \
+ --name 'tagging-policy' \
+ --display-name 'Subscription-wide tagging policy' \
+ --description 'This policy prevents untagged indexed resources from being created on a subscription.' \
+ --mode Indexed \
+ --params './tagging-rules.parameters.json' \
+ --rules './tagging-rules.json'
+
+ 
