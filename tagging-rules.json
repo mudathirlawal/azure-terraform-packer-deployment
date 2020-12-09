@@ -1,78 +1,18 @@
 {
-  "if": {
-    "allof": [
-      {
-        "field": "[concat('tags[', parameters('tagName'), ']')]",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "tag-all-indexed-resources",
+  "properties": {
+    "mode": "indexed",
+    "displayName": "Ensures that every indexed resource has a tag.",
+    "description": "This policy halts deployment of untagged indexed resources.",
+    "policyRule": {
+      "if": {
+        "field": "tags",
         "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-
-
-{
-  "if": {
-    "allof": [
-      {
-        "field": "[concat('tags[', parameters('tagName'), ']')]",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
-  },
-  "parameters": {
-    "tagName": {
-      "type": "String",
-      "metadata": {
-        "displayName": "Tag Name",      
-        "description": "Name of the tag, such as 'environment'"
-      }
-    },
-    "tagValue": {
-      "type": "String",
-      "metadata": {
-        "displayName": "Tag Value",
-        "description": "Value of the tag, such as 'production'"
+      },
+      "then": {
+        "effect": "deny"
       }
     }
-  }  
-}
-
-
-{
-  "mode": "Indexed",
-  "policyRule": {  
-    "if": {
-      "allof": [
-        {
-          "field": "[concat('tags[', parameters('tagName'), ']')]",
-          "exists": "false"
-        }
-      ]
-    },
-    "then": {
-      "effect": "deny"
-    },
-    "parameters": {
-      "tagName": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name",      
-          "description": "Name of the tag, such as 'environment'"
-        }
-      },
-      "tagValue": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Value",
-          "description": "Value of the tag, such as 'production'"
-        }
-      }
-    }  
   }
 }
