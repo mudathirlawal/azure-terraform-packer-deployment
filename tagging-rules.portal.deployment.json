@@ -1,0 +1,12 @@
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+        "field": "tags",
+        "notEquals": "false"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }
+}
