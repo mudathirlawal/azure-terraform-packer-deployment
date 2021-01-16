@@ -2,7 +2,26 @@
 az policy definition create \
  --name 'tagging-policy' \
  --display-name 'Subscription-wide tagging policy' \
- --description 'This policy prevents untagged indexed resources from being created on a subscription.' \
+ --description 'This policy prevents untagged indexed resources from being created.' \
  --mode Indexed \
- --params './tagging-rules.parameters.dev.json' \
+ --params @tagging-rules.parameters.prod.json \
  --rules './tagging-rules.json'
+
+az policy definition create \
+ --name $name \
+ --display-name $displayName \
+ --description $description \
+ --mode Indexed \
+ --template-file $templateFile \
+ --parameters $devParameterFile
+
+az policy definition create --name TagsPolicyDefinition --subscription "MySubscription" \
+    --mode Indexed --rules "{ \"if\": { \"field\": \"tags\", \"exists\": \"false\" }, \
+        \"then\": { \"effect\": \"deny\" } }"
+
+az policy definition create \
+ --name 'tagging-policy' \
+ --display-name 'Subscription-wide tagging policy' \
+ --description 'This policy prevents untagged indexed resources from being created.' \
+ --rules './tagging-rules.json' \
+ --mode Indexed    
