@@ -1,18 +1,9 @@
 {
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "tag-all-indexed-resources",
-  "properties": {
-    "mode": "indexed",
-    "displayName": "Ensures that every indexed resource has a tag.",
-    "description": "This policy halts deployment of untagged indexed resources.",
-    "policyRule": {
-      "if": {
+    "if": {
         "field": "tags",
         "exists": "false"
-      },
-      "then": {
+    },
+    "then": {
         "effect": "deny"
-      }
     }
-  }
 }
