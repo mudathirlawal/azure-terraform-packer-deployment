@@ -24,4 +24,5 @@ az policy definition create \
  --display-name 'Subscription-wide tagging policy' \
  --description 'This policy prevents untagged indexed resources from being created.' \
  --rules './tagging-rules.json' \
- --mode Indexed    
+ --mode Indexed
+     
