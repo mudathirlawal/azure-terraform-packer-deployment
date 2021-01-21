@@ -25,4 +25,16 @@ az policy definition create \
  --description 'This policy prevents untagged indexed resources from being created.' \
  --rules './tagging-rules.json' \
  --mode Indexed
-     
+
+az image list
+az image delete -g packer-images-rg -n UbuntuServerPackerImage
+
+packer build
+
+terraform init
+terraform plan -out solution.plan
+terraform apply
+terraform destroy
+terraform output <variable-name>
+terraform show
+
