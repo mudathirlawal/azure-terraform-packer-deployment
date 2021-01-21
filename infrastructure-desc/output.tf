@@ -1,0 +1,4 @@
+output "LoadBalancerIP" {
+    description = "Represents the public IP address of the internet-facing LB."
+    value = azurerm_public_ip.main.id.public_ip_address_id 
+}
