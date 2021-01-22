@@ -39,7 +39,7 @@ resource "azurerm_network_security_group" "main" {
   }
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }
 }
 
@@ -56,7 +56,7 @@ resource "azurerm_network_interface" "main" {
   }
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }
 
 }
@@ -68,7 +68,7 @@ resource "azurerm_public_ip" "main" {
   allocation_method   = "Static"
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }
 }
 
@@ -83,7 +83,7 @@ resource "azurerm_lb" "main" {
   }
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }  
 }
 
@@ -118,7 +118,7 @@ resource "azurerm_availability_set" "main" {
   resource_group_name          = azurerm_resource_group.main.name
   
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }
 }
 
@@ -148,7 +148,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   }
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }  
 }
 
@@ -161,6 +161,6 @@ resource "azurerm_managed_disk" "main" {
   disk_size_gb         = var.diskSizeGB
 
   tags = {
-    environment = "Production"
+    project_name = "${var.prefix}-proj"
   }
 }
