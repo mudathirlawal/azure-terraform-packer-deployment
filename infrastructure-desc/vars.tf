@@ -1,5 +1,5 @@
 variable "prefix" {
-    description = "The text that is prefixed to this resource."
+    description = "This is the proect name; it is prefixed to most resources."
 }
 
 variable "location" {
@@ -28,10 +28,12 @@ variable "storageAccType" {
 
 variable "adminUserName" {
     description = "Admin username for this VM."
+    default = "RemoteUser"
 }
 
 variable "adminPassword" {
     description = "Admin password for this VM."
+    default = "ProgrammingIsSweet@2021"
 }
 
 variable "diskSizeGB" {
