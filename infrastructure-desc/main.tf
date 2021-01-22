@@ -94,6 +94,11 @@ resource "azurerm_availability_set" "main" {
   }
 }
 
+data "azurerm_image" "main" {
+  name                	= "UbuntuServerPackerImage"
+  resource_group_name 	= "packer-images-rg"
+}
+
 resource "azurerm_linux_virtual_machine" "main" {
   count                           = var.vmCount 
   name                            = "${var.prefix}-vm-${count.index}"
@@ -132,3 +137,6 @@ resource "azurerm_managed_disk" "main" {
     environment = "Production"
   }
 }
+
+
+
