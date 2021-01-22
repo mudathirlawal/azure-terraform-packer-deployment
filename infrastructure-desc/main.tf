@@ -93,6 +93,25 @@ resource "azurerm_lb_backend_address_pool" "main" {
   name                = "${var.prefix}BackEndAddressPool"
 }
 
+resource "azurerm_lb_probe" "main" {
+  resource_group_name = azurerm_resource_group.main.name
+  loadbalancer_id     = azurerm_lb.main.id
+  name                = "${var.prefix}-lb-probe"
+  port                = 80
+}
+
+resource "azurerm_lb_rule" "main" {
+  resource_group_name            = azurerm_resource_group.main.name
+  loadbalancer_id                = azurerm_lb.main.id
+  name                           = "${var.prefix}-lb-rule"
+  protocol                       = "Tcp"
+  frontend_port                  = 80
+  backend_port                   = 80
+  backend_address_pool_id        = azurerm_lb_backend_address_pool.main.id
+  probe_id			 = azurerm_lb_probe.main.id
+  frontend_ip_configuration_name = "${var.prefix}FrontendPublicIP"
+}
+
 resource "azurerm_availability_set" "main" {
   name                         = "${var.prefix}-aset"
   location                     = azurerm_resource_group.main.location
