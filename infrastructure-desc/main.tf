@@ -118,6 +118,10 @@ resource "azurerm_linux_virtual_machine" "main" {
     storage_account_type = "var.storageAccType"
     caching              = "ReadWrite"
   }
+  
+  tags = {
+    environment = "Production"
+  }  
 }
 
 resource "azurerm_managed_disk" "main" {
