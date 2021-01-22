@@ -103,6 +103,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   count                           = var.vmCount 
   name                            = "${var.prefix}-vm-${count.index}"
   resource_group_name             = azurerm_resource_group.main.name
+  availability_set_id             = azurerm_availability_set.main.id
   location                        = azurerm_resource_group.main.location
   size                            = "var.vmSize"
   admin_username                  = "var.adminUserName"
