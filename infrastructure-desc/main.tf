@@ -104,6 +104,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   name                            = "${var.prefix}-vm-${count.index}"
   resource_group_name             = azurerm_resource_group.main.name
   availability_set_id             = azurerm_availability_set.main.id
+  source_image_id                 = data.azurerm.image.main.id
   location                        = azurerm_resource_group.main.location
   size                            = "var.vmSize"
   admin_username                  = "var.adminUserName"
@@ -112,13 +113,6 @@ resource "azurerm_linux_virtual_machine" "main" {
   network_interface_ids           = [
     azurerm_network_interface.main.id,
   ]
-
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
-  }
 
   os_disk {
     storage_account_type = "var.storageAccType"
