@@ -132,6 +132,3 @@ resource "azurerm_managed_disk" "main" {
     environment = "Production"
   }
 }
-
-
-
