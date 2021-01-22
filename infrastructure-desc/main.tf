@@ -54,6 +54,11 @@ resource "azurerm_network_interface" "main" {
     subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Dynamic"
   }
+
+  tags = {
+    environment = "Production"
+  }
+
 }
 
 resource "azurerm_public_ip" "main" {
@@ -76,6 +81,10 @@ resource "azurerm_lb" "main" {
     name                 = "${var.prefix}FrontendPublicIP"
     public_ip_address_id = azurerm_public_ip.main.id
   }
+
+  tags = {
+    environment = "Production"
+  }  
 }
 
 resource "azurerm_lb_backend_address_pool" "main" {
@@ -118,7 +127,7 @@ resource "azurerm_linux_virtual_machine" "main" {
     storage_account_type = "var.storageAccType"
     caching              = "ReadWrite"
   }
-  
+
   tags = {
     environment = "Production"
   }  
