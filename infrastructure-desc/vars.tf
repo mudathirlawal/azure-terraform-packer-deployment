@@ -1,10 +1,10 @@
 variable "prefix" {
-    description = "This is the proect name; it is prefixed to most resources."
+    description = "This is the project name; it is prefixed to most resources."
 }
 
 variable "location" {
     description = "Azure Region wherein this resource is deployed."
-    default = "West US 2"
+    default = "East US"
 }
 
 variable "vmSize" {

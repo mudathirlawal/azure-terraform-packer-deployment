@@ -58,7 +58,6 @@ resource "azurerm_network_interface" "main" {
   tags = {
     project_name = "${var.prefix}-proj"
   }
-
 }
 
 resource "azurerm_public_ip" "main" {
@@ -138,12 +137,12 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_username                  = "var.adminUserName"
   admin_password                  = "var.adminPassword"
   disable_password_authentication = false
-  network_interface_ids           = [
-    azurerm_network_interface.main.id,
+  network_interface_ids           = [   
+    "${element(azurerm_network_interface.main.*.id, count.index)}"
   ]
 
   os_disk {
-    storage_account_type = "var.storageAccType"
+    storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
   }
 
@@ -156,11 +155,11 @@ resource "azurerm_managed_disk" "main" {
   name                 = "${var.prefix}-mdisk"
   location             = var.location
   resource_group_name  = azurerm_resource_group.main.name
-  storage_account_type = "var.storageAccType"
+  storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = var.diskSizeGB
 
   tags = {
     project_name = "${var.prefix}-proj"
   }
-}
+}  
