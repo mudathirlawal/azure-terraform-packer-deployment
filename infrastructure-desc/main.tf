@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "main" {
-  name     = "${var.prefix}-resources"
+  name     = "${var.prefix}-infrastructure"
   location = var.location
 }
 
@@ -61,7 +61,7 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_public_ip" "main" {
-  name                = "${var.prefix}PublicIp1"
+  name                = "${var.prefix}-public-ip"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   allocation_method   = "Static"
@@ -72,12 +72,12 @@ resource "azurerm_public_ip" "main" {
 }
 
 resource "azurerm_lb" "main" {
-  name                = "${var.prefix}LoadBalancer"
+  name                = "${var.prefix}-loadbalancer"
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
 
   frontend_ip_configuration {
-    name                 = "${var.prefix}FrontendPublicIP"
+    name                 = "${var.prefix}-fend-public-ip"
     public_ip_address_id = azurerm_public_ip.main.id
   }
 
@@ -89,7 +89,7 @@ resource "azurerm_lb" "main" {
 resource "azurerm_lb_backend_address_pool" "main" {
   resource_group_name = azurerm_resource_group.main.name
   loadbalancer_id     = azurerm_lb.main.id
-  name                = "${var.prefix}BackEndAddressPool"
+  name                = "${var.prefix}-bend-address-pool"
 }
 
 resource "azurerm_lb_probe" "main" {
@@ -107,8 +107,8 @@ resource "azurerm_lb_rule" "main" {
   frontend_port                  = 80
   backend_port                   = 80
   backend_address_pool_id        = azurerm_lb_backend_address_pool.main.id
-  probe_id			 = azurerm_lb_probe.main.id
-  frontend_ip_configuration_name = "${var.prefix}FrontendPublicIP"
+  probe_id			                 = azurerm_lb_probe.main.id
+  frontend_ip_configuration_name = "${var.prefix}-fend-public-ip"
 }
 
 resource "azurerm_availability_set" "main" {
@@ -133,8 +133,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   availability_set_id             = azurerm_availability_set.main.id
   source_image_id                 = data.azurerm_image.main.id
   location                        = azurerm_resource_group.main.location
-  size                            = "var.vmSize"
-  admin_username                  = "var.adminUserName"
+  size                            = "Standard_D2s_v3"
+  admin_username                  = "var.adminUsername"
   admin_password                  = "var.adminPassword"
   disable_password_authentication = false
   network_interface_ids           = [   

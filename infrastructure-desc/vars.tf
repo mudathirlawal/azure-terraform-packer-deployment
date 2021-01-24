@@ -1,39 +1,26 @@
 variable "prefix" {
     description = "This is the project name; it is prefixed to most resources."
+    default = "udacity"
 }
 
 variable "location" {
     description = "Azure Region wherein this resource is deployed."
-    default = "East US"
-}
-
-variable "vmSize" {
-    description = "This specifies the desired type of VM."
-    default = "Standard_B1s"
+    default = "West US 2"
 }
 
 variable "vmCount" {
     description = "This is the total number of deployed VMs."
-    default = 1
+    default = 2
 }
 
-variable "resourceGrp" {
-    description = "Represents the resource group accommodating the service."
-}
-
-variable "storageAccType" {
-    description = "Specifies the type of disk storage account used."
-    default = "Standard_LRS"
-}
-
-variable "adminUserName" {
+variable "adminUsername" {
     description = "Admin username for this VM."
     default = "RemoteUser"
 }
 
 variable "adminPassword" {
     description = "Admin password for this VM."
-    default = "ProgrammingIsSweet@2021"
+    default = "DevOpsIsSweet@2021"
 }
 
 variable "diskSizeGB" {
