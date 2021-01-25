@@ -3,7 +3,7 @@
 ### Introduction
 The goal of this project is to create infrastructure as code (IaC) in the form of a Terraform template as well as a Packer configuration to deploy a highly available website with a load balancer, as shown in the diagram below. The infrastructure is deployed into Azure in a customizable way based on specifications provided at build time, with an eye toward scaling the application for use in a CI/CD pipeline.
 
-![alt text](/readme-images/architecture.png)
+![Diagram dipicting the cloud architecture employed.](/readme-images/architecture.png)
 
 Although we could use Azure App Service to achieve the same goal, we have adopted this approach in order to make the project suitable for use in an environment or organisation where the cost 
 of PaaS is a concern. Therefore, we have used only Azure IaaS so we can control cost. Since we expect the application be a popular service, it was be deployed across multiple virtual machines.
