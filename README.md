@@ -10,7 +10,7 @@ of PaaS is a concern. Therefore, we have used only Azure IaaS so we can control 
 
 To support this need and minimize future work, we employed Packer to create a server image, and Terraform to create a template for deploying a scalable cluster of servers with a load balancer to manage the incoming traffic. We have also adhered to security practices and ensured that our infrastructure is secure.
 
-## Main Steps
+### Main Steps
 The project consist of the following main steps:
 
 -   Creating a Packer template
