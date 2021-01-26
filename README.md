@@ -63,9 +63,8 @@ The project consist of the following main steps:
   ManagedImageId: /subscriptions/02dbcxxxx-xxxxxxxxx-xxxxxx-xxxxx/resourceGroups/packer-images-rg/providers/Microsoft.Compute/images/UbuntuServerPackerImage
   ManagedImageLocation: West US 2
   ```
-2. Terraform:
-  
-  [Terraform apply output should be similar to this](https://github.com/mudathirlawal/azure-terraform-packer-iac/blob/ops/terraform-apply-output.txt) 
+
+2. Terraform: [Terraform apply output should be similar to this](https://github.com/mudathirlawal/azure-terraform-packer-iac/blob/ops/terraform-apply-output.txt) 
  
 ## Clean up provisioned infrasture as a service (IaaS) 
 
