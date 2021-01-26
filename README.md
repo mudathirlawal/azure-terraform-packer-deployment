@@ -1,6 +1,6 @@
 # Azure Infrastructure Operations: Deploying a scalable IaaS web server in Azure
 
-### Introduction
+## Introduction
 The goal of this project is to create infrastructure as code (IaC) in the form of a Terraform template as well as a Packer configuration to deploy a highly available website with a load balancer, as shown in the diagram below. The infrastructure is deployed into Azure in a customizable way based on specifications provided at build time, with an eye toward scaling the application for use in a CI/CD pipeline.
 
 ![Diagram dipicting the cloud architecture adopted.](/readme-images/architecture.png)
@@ -17,16 +17,16 @@ The project consist of the following main steps:
 -   Creating a Terraform template
 -   Deploying the infrastructure
 
-### Getting Started
+## Getting Started
 
-  #### Prepare the dependencies:
+  ### Prepare the dependencies:
 
   1. Create an [Azure Account](https://portal.azure.com) 
   2. Install the [Azure Client/Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
   3. Install [Packer](https://www.packer.io/downloads)
   4. Install [Terraform](https://www.terraform.io/downloads.html)
 
-  #### Instructions
+  ### Instructions
 
   1. [On GitHub,](https://github.com) fork the repository https://github.com/mudathirlawal/azure-terraform-packer-iac into your [GitHub account.](https://github.com)
 
