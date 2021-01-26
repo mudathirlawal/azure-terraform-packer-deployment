@@ -39,9 +39,9 @@ The project consist of the following main steps:
 
   3 Build the project following the guide provided in the links below:
 
-    - [Build Ubuntu server image with packer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer) 
-    - [Deploy Infrastructure as Code using Terraform](https://microsoft.github.io/AzureTipsAndTricks/blog/tip201.html)
-    - [Learn some Terraform](https://learn.hashicorp.com/tutorials/packer/getting-started-install)   
+  - [Build Ubuntu server image with packer](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer) 
+  - [Deploy Infrastructure as Code using Terraform](https://microsoft.github.io/AzureTipsAndTricks/blog/tip201.html)
+  - [Learn some Terraform](https://learn.hashicorp.com/tutorials/packer/getting-started-install)   
     
 ### Output
 
