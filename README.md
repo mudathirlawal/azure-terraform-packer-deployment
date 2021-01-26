@@ -47,6 +47,7 @@ The project consist of the following main steps:
 
 1. Packer build output should be similar to this:
 
+  ```bash
   ==> azure-arm: Cleanup requested, deleting resource group ...
   ==> azure-arm: Resource group has been deleted.
   Build 'azure-arm' finished after 1 hour 19 minutes.
@@ -61,7 +62,7 @@ The project consist of the following main steps:
   ManagedImageName: UbuntuServerPackerImage
   ManagedImageId: /subscriptions/02dbcxxxx-xxxxxxxxx-xxxxxx-xxxxx/resourceGroups/packer-images-rg/providers/Microsoft.Compute/images/UbuntuServerPackerImage
   ManagedImageLocation: West US 2
-
+  ```
 2. Terraform:
   
   [Terraform apply output should be similar to this](https://github.com/mudathirlawal/azure-terraform-packer-iac/blob/ops/terraform-apply-output.txt) 
